@@ -1,0 +1,105 @@
+body {
+    background-color:#16365d;
+    width: 100%;
+    height: 100%;
+    font-family: Arial;
+}
+.insert1 {
+    margin-left: 90%;
+    color: white;
+    font-weight: bold;
+    font-family: Arial;
+}
+.red1{
+    color: red;
+    font-style: italic;
+    font-family: Arial;
+}
+.footers {
+    color: violet;
+    font-weight: bold;
+}
+
+.red2 {
+    color: red;
+    text-decoration: underline;
+    font-family: Arial;
+    font-weight: bold;
+}
+.redM {
+    text-align: center;
+    color: red;
+    font-family: Arial;
+    font-weight: bold;
+}
+.mediatext {
+    color: yellow;
+    text-decoration: underline;
+}
+.mediatext2 {
+    color: blue;
+    font-weight: bold;
+}
+.mediatext3{
+    color: #8ACE00;
+    font-weight: bold;
+}
+.format {
+    border: 2px solid black;
+    width: 50%;
+    padding-bottom: 20px;
+    color: white;
+    background: black;
+    border-top:2px solid red;
+    border-left:2px solid red;
+    font-family: sans-serif;
+}
+.formattext{
+    color: blue;
+    font-weight: bold;
+    font-family: Arial;
+}
+.formattext2 {
+    color: red;
+    font-family: Arial;
+    font-weight: bold;
+}
+.formattext3 {
+    color: black;
+    background-color: rgb(4, 165, 4);
+     font-family: Arial;
+     font-weight: bold;
+}
+.controlsH {
+    color: rgb(4, 165, 4);
+    font-family: Arial;
+    font-weight: bold;
+    
+}
+.controlT {
+    border: 3px solid black;
+    width: 99%;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    font-style: italic;
+}
+.galleriesH {
+    color: yellow;
+    border-bottom: 2px solid yellow;
+    width: 50%;
+    text-align: center;
+}
+.redG {
+    background-color: red;
+    color: white;
+    font-family: Arial;
+    font-weight: bold;
+}
+.red {
+    color: red;
+}
+p {
+    color: white;
+    font-family: arial;
+}
