@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anniversary Forest Card</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            background: linear-gradient(to bottom, #0a0a2e, #000 70%);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+            padding-top: 40px;
+        }
+
+        h1,
+        h2 {
+            text-shadow: 0 0 10px #fff, 0 0 20px #ff80bf;
+            margin: 0.3em 0;
+            z-index: 2;
+            position: relative;
+        }
+
+        h1 {
+            margin-top: 10px;
+        }
+
+        .heart {
+            width: 120px;
+            cursor: pointer;
+            z-index: 2;
+            margin-top: 10px;
+            transition: transform 0.4s ease;
+            animation: heartPulse 2s infinite;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .heart.animate {
+            transform: scale(1.5);
+        }
+
+        @keyframes heartPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .message {
+            opacity: 0;
+            transition: opacity 1.5s ease;
+            color: #fff;
+            z-index: 2;
+            position: relative;
+            margin-top: 1em;
+            font-size: 1.2em;
+        }
+
+        .message.show {
+            opacity: 1;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: transparent;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            box-shadow: 0 0 6px white;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1.3);
+            }
+        }
+
+        .campfire {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            z-index: 1;
+            animation: campfireGlow 1s infinite alternate;
+        }
+
+        @keyframes campfireGlow {
+            from {
+                filter: drop-shadow(0 0 15px orange) brightness(0.9);
+            }
+
+            to {
+                filter: drop-shadow(0 0 30px yellow) brightness(1.2);
+            }
+        }
+
+        .tree,
+        .deer,
+        .item {
+            position: absolute;
+            z-index: 1;
+            width: 120px;
+        }
+
+        /* Left staircase */
+        .tree.left1 {
+            left: 2%;
+            bottom: 80px;
+        }
+
+        .tree.left2 {
+            left: 10%;
+            bottom: 120px;
+        }
+
+        .tree.left2b {
+            left: 7%;
+            bottom: 100px;
+        }
+
+        .tree.left3 {
+            left: 18%;
+            bottom: 160px;
+        }
+
+        .tree.left3b {
+            left: 15%;
+            bottom: 140px;
+        }
+
+        .tree.left4 {
+            left: 26%;
+            bottom: 200px;
+        }
+
+        /* Right staircase */
+        .tree.right1 {
+            right: 2%;
+            bottom: 80px;
+        }
+
+        .tree.right2 {
+            right: 10%;
+            bottom: 120px;
+        }
+
+        .tree.right2b {
+            right: 7%;
+            bottom: 100px;
+        }
+
+        .tree.right3 {
+            right: 18%;
+            bottom: 160px;
+        }
+
+        .tree.right3b {
+            right: 15%;
+            bottom: 140px;
+        }
+
+        .tree.right4 {
+            right: 26%;
+            bottom: 200px;
+        }
+
+        .deer {
+            bottom: 160px;
+            width: 220px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .item {
+            bottom: 50px;
+            width: 80px;
+        }
+
+        .item.left {
+            left: 20%;
+        }
+
+        .item.right {
+            right: 20%;
+        }
+
+        /* Food beside fire */
+        .food {
+            position: absolute;
+            bottom: 60px;
+            width: 90px;
+            z-index: 1;
+            animation: foodBob 2s infinite ease-in-out alternate,
+                foodGlow 1.5s infinite alternate;
+        }
+
+        .food.left {
+            left: calc(50% - 160px);
+        }
+
+        .food.right {
+            left: calc(50% + 70px);
+        }
+
+        .food.left2 {
+            left: calc(50% - 80px);
+        }
+
+        .food.right2 {
+            left: calc(50% + 150px);
+        }
+
+        @keyframes foodGlow {
+            from {
+                filter: brightness(0.9);
+            }
+
+            to {
+                filter: brightness(1.2);
+            }
+        }
+
+        @keyframes foodBob {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-8px);
+            }
+        }
+
+        .ground {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(to top, #013220, transparent);
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stars" id="stars"></div>
+
+    <h1>99 Nights? We survived 1,735</h1>
+    <h2>Happy 4 years & 9 months Anniversary!</h2>
+
+    <img src="https://gallery.yopriceville.com/var/albums/Free-Clipart-Pictures/Hearts-PNG/Heart_Shape_Red_PNG_Clipart.png?m=1629807039"
+        alt="heart" class="heart" id="heart">
+
+    <div class="message" id="message">
+        <p>Even in the darkest night, you're my light.</p>
+        <p>I LOVE YOU ❤️</p>
+    </div>
+
+    <!-- Trees -->
+    <img src="fireimages/simplicity-pine-tree-freehand-drawing-free-png.png" alt="tree" class="tree left1">
+    <img src="fireimages/simplicity-pine-tree-freehand-drawing-free-png.png" alt="tree" class="tree left2">
+    <img src="fireimages/simplicity-pine-tree-freehand-drawing-free-png.png" alt="tree" class="tree left2b">
+    <img src="fireimages/simplicity-pine-tree-freehand-drawing-free-png.png" alt="tree" class="tree left3">
+    <img src="fireimages/simplicity-pine-tree-freehand-drawing-free-png.png" alt="tree" class="tree left3b">
+    <img src="fireimages/simplicity-pine-tree-freehand-drawing-free-png.png" alt="tree" class="tree left4">
+
+    <img src="fireimages/simplicity-pine-tree-freehand-drawing-free-png.png" alt="tree" class="tree right1">
+    <img src="fireimages/simplicity-pine-tree-freehand-drawing-free-png.png" alt="tree" class="tree right2">
+    <img src="fireimages/simplicity-pine-tree-freehand-drawing-free-png.png" alt="tree" class="tree right2b">
+    <img src="fireimages/simplicity-pine-tree-freehand-drawing-free-png.png" alt="tree" class="tree right3">
+    <img src="fireimages/simplicity-pine-tree-freehand-drawing-free-png.png" alt="tree" class="tree right3b">
+    <img src="fireimages/simplicity-pine-tree-freehand-drawing-free-png.png" alt="tree" class="tree right4">
+
+    <!-- Deer -->
+    <img src="fireimages/TheDeer-removebg-preview.png" alt="deer" class="deer">
+
+    <!-- Campfire -->
+    <img src="fireimages/—Pngtree—campfire_8667115.png" alt="campfire" class="campfire">
+
+    <!-- Food beside campfire -->
+    <img src="fireimages/BBQ_Ribs-removebg-preview.png" alt="ribs" class="food left">
+    <img src="fireimages/Morsel-removebg-preview.png" alt="morsel" class="food right">
+    <img src="fireimages/Cake-removebg-preview.png" alt="fish" class="food left2">
+    <img src="fireimages/Stew-removebg-preview.png" alt="corn" class="food right2">
+
+    <!-- Items -->
+    <img src="fireimages/Good_axe-removebg-preview.png" alt="axe" class="item left">
+    <img src="fireimages/Old_flashlight-removebg-preview.png" alt="flashlight" class="item right">
+
+    <div class="ground"></div>
+
+    <audio id="fireSound" autoplay loop>
+        <source src="https://www.soundjay.com/misc/sounds/campfire-1.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="bgMusic" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const heart = document.getElementById('heart');
+        const message = document.getElementById('message');
+        const bgMusic = document.getElementById('bgMusic');
+        const starsContainer = document.getElementById('stars');
+
+        // Generate stars
+        for (let i = 0; i < 40; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.top = Math.random() * 40 + '%';
+            star.style.left = Math.random() * 100 + '%';
+            starsContainer.appendChild(star);
+        }
+
+        // Heart click
+        heart.addEventListener('click', () => {
+            heart.classList.add('animate');
+            message.classList.add('show');
+            bgMusic.play();
+        });
+    </script>
+</body>
+
+</html>
